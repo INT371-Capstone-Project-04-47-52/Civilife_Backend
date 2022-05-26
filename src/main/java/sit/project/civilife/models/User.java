@@ -1,10 +1,13 @@
 package sit.project.civilife.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,8 +21,8 @@ public class User {
     private String email;
     @JsonIgnore
     private String password;
-//    private String username;
-//    private long chaId;
-//    private String role;
+    @JsonBackReference
+    @OneToMany(mappedBy = "user")
+    private List<Player> players;
 
 }
