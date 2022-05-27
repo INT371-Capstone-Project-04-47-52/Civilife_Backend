@@ -15,6 +15,10 @@ public class UserException extends BaseException {
     }
 
 
+    public static UserException createUserIdExist() {
+        return new UserException("Create userId is exist");
+    }
+
     public static UserException createEmailNull() {
         return new UserException("Create email is null");
     }
