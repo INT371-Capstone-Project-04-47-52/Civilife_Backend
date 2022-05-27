@@ -1,0 +1,24 @@
+version: "3"
+services:
+  backend:
+    container_name: backend_con
+    build: .
+    image: ghcr.io/int371-capstone-project-04-47-52/civilifeback:main
+    ports: 
+      - "9000:9000"
+    environment:
+      - MYSQL_DATABASE=Civilife
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=cvl044752
+    volumes:
+      - /home/MKT/product-images:/public/product-images
+    networks:
+      network:
+        ipv4_address: 172.20.0.4
+
+networks:
+  default:
+    external:
+      name: network
+  network:
+    external: true
