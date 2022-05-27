@@ -5,7 +5,7 @@ services:
     build: .
     image: ghcr.io/int371-capstone-project-04-47-52/civilifeback:main
     ports: 
-      - "5000:5000"
+      - "9000:9000"
     environment:
       - MYSQL_DATABASE=Civilife
       - MYSQL_USER=root
