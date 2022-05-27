@@ -3,7 +3,6 @@ package sit.project.civilife.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sit.project.civilife.models.Landmark;
 import sit.project.civilife.models.Player;
 import sit.project.civilife.repositories.PlayerRepository;
 

@@ -7,6 +7,7 @@ import sit.project.civilife.exception.UserException;
 import sit.project.civilife.models.User;
 import sit.project.civilife.repositories.UserRepository;
 
+import java.sql.Date;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -37,7 +38,7 @@ public class UserService {
     public User create(long userId,
                        String fname,
                        String lname,
-                       String age,
+                       Date birthday,
                        String email,
                        String password
     ) throws BaseException {
@@ -50,6 +51,10 @@ public class UserService {
             throw UserException.createPasswordNull();
         }
 
+        if (userRepository.existsById(userId)) {
+            throw UserException.createUserIdExist();
+        }
+
         if (userRepository.existsByEmail(email)) {
             throw UserException.creatEmailExist();
         }
@@ -58,7 +63,7 @@ public class UserService {
         newUser.setUserId(userId);
         newUser.setFname(fname);
         newUser.setLname(lname);
-        newUser.setAge(age);
+        newUser.setBirthday(birthday);
         newUser.setEmail(email);
         newUser.setPassword(passwordEncoder.encode(password));
 

@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.sql.Date;
 import java.util.List;
 
 @Data
@@ -17,7 +18,7 @@ public class User {
     private long userId;
     private String fname;
     private String lname;
-    private String age;
+    private Date birthday;
     private String email;
     @JsonIgnore
     private String password;

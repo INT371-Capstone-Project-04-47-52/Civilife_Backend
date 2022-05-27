@@ -1,8 +1,5 @@
 package sit.project.civilife.controllers;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import sit.project.civilife.config.token.TokenSecurityUtil;
 import sit.project.civilife.exception.BaseException;
@@ -44,14 +41,14 @@ public class UserController {
     public String refreshToken() throws BaseException {
         //who is loging in
         Optional<Long> currentUserId = TokenSecurityUtil.getCurrentUserId();
-        if(currentUserId.isEmpty()){
+        if (currentUserId.isEmpty()) {
             throw UserException.userUnAuthorized();
         }
 
         Long requestUserId = currentUserId.get();
 
         Optional<User> findUserId = userService.findByUserId(requestUserId);
-        if (findUserId.isEmpty()){
+        if (findUserId.isEmpty()) {
             throw UserException.userIdNotfound();
         }
 
@@ -64,7 +61,7 @@ public class UserController {
                 signupRequest.getUserId(),
                 signupRequest.getFname(),
                 signupRequest.getLname(),
-                signupRequest.getAge(),
+                signupRequest.getBirthday(),
                 signupRequest.getEmail(),
                 signupRequest.getPassword()
         );
