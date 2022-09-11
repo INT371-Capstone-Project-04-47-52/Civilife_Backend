@@ -2,9 +2,8 @@ package sit.project.civilife.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import sit.project.civilife.models.Player;
+import sit.project.civilife.models.Characters;
 
-public interface PlayerRepository extends JpaRepository<Player, Long> {
-
+public interface CharacterRepository extends JpaRepository<Characters, Long> {
 
 }

@@ -25,5 +25,6 @@ public class User {
     @JsonBackReference
     @OneToMany(mappedBy = "user")
     private List<Player> players;
+    private long point=0;
 
 }

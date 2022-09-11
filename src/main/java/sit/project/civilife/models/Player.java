@@ -1,5 +1,6 @@
 package sit.project.civilife.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,14 +12,15 @@ public class Player {
   @Id
   private long playerId;
   private String playerName;
-  private long money;
-  private long power;
-  private long happy;
+  private long statusMoney;
+  private long statusEnergy;
+  private long statusHappy;
+  private long bankMoney;
   @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;
-  @OneToOne
-  @JoinColumn(name = "cha_id")
-  private Gamecharacter gamecharacter;
+  @JsonBackReference
+  @OneToOne(mappedBy = "player")
+  private Characters character;
 
 }
